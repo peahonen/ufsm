@@ -5,6 +5,7 @@ CC ?= gcc
 
 CFLAGS = -Wall -O2 -I ../../../ -I .
 LDFLAGS = -lpthread
+LDFLAGS += -lgcov
 
 UFSM_XMI = dhcp_client_fsm.xmi
 UFSM_XMI_OBJS = $(UFSM_XMI:.xmi=.xmio)
