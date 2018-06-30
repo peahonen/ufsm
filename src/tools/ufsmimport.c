@@ -606,8 +606,11 @@ static xmlNode * get_first_statemachine(xmlNode *node)
         if (is_type(n, "uml:StateMachine")) {
             return n;
         }
-        if (n->children)
+        if (n->children) {
             result = get_first_statemachine(n->children);
+            if(result)
+	       return result;
+	}
     }
 
    return result;
