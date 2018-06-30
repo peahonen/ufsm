@@ -348,6 +348,7 @@ static uint32_t parse_transition(xmlNode *n, struct ufsm_machine *m,
             t->dest = dest;
 
             char *t_kind = (char *) get_attr(s_node, "kind");
+	    if(!t_kind) t_kind = "<none>";
 
             if (strcmp(t_kind, "internal") == 0)
                 t->kind = UFSM_TRANSITION_INTERNAL;
@@ -444,6 +445,7 @@ static uint32_t parse_region(xmlNode *n, struct ufsm_machine *m,
             bzero(s, sizeof(struct ufsm_state));
             s->name = NULL;
             char *node_kind = (char*) get_attr(s_node, "kind");
+	    if(!node_kind) node_kind = "<none>";
 
             if (strcmp(node_kind, "initial") == 0) {
                 s->name = malloc(64);
